@@ -38,11 +38,6 @@ void analogReference(uint8_t mode)
 	analog_reference = mode;
 }
 
-int analogRead(uint8_t pin)
-{
-	return 0;
-}
-
 const int _pwm_mul = 3;
 
 void *pwmThreadHandler(void *pinptr) {
@@ -99,3 +94,9 @@ void analogWrite(uint8_t pin, int val)
 	}
 }
 
+int analogRead(uint8_t pin) {
+#ifdef USE_BOARD_ANALOG_READ
+    return __board_analog_read(pin);
+#endif
+    return 0;
+}
