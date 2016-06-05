@@ -1,0 +1,13 @@
+Source: linux
+Section: cores
+Priority: extra
+XBSC-Family: linux
+Maintainer: Matt Jenkins <matt@majenko.co.uk>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+
+Package: linux
+Architecture: all
+Depends: 
+Recommends: 
+Description: Linux Embedded Computer core

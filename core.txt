@@ -1,0 +1,42 @@
+name=linux
+description=Embedded Linux computer
+compiler=arm-linux-gnueabihf-gcc
+
+core.path=api
+core.flags=-DF_CPU=${build.f_cpu}::-DARDUINO=${core.version}::-D${board}::--std=gnu++0x
+core.ldflags=-pthread::-lutil
+core.header=Arduino.h
+core.version=106
+version=1.0.x
+revision=2
+
+core.library.api=api
+
+family=linux
+
+library.path=libraries
+examples.path=examples
+
+board=_UNKNOWN_BOARD_
+build.files=board_config.cpp
+
+sketch.upload=terminal::run
+bootloader.upload=
+
+icon.128=icons/tux128.png
+icon.64=icons/tux64.png
+icon.48=icons/tux48.png
+icon.32=icons/tux32.png
+icon.22=icons/tux22.png
+icon.16=icons/tux16.png
+
+manual=reference
+
+upload.terminal.name=Execute in a terminal window
+upload.terminal.command=xterm::-title::${filename} - CTRL-C to exit::-e::./${filename}
+upload.terminal.using=external
+
+upload.run.name=Run directly
+upload.run.command=./${filename}
+upload.run.using=external
+
